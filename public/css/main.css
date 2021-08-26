@@ -1,0 +1,28 @@
+.form-control {
+	height: 40px;
+}
+.form-select {
+    text-align: center;
+    text-align-last: center;
+}
+.signup-form {
+	width: 600px;
+	margin: 30px auto;
+}
+.signup-form h1  {
+	color: #23b895;
+	font-weight: bold;
+}
+.signup-form h4  {
+	color: #23b895;
+}
+.signup-form .btn {   
+    display: block;
+    margin: 0 auto;     
+	font-size: 16px;
+	background: #23b895;
+    color: rgb(0, 0, 0);
+    height: 40px;
+	min-width: 200px;
+    margin-top: 20px;
+}
