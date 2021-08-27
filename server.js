@@ -28,6 +28,37 @@ app.post('/', (req,res)=>{
     const state = req.body.inputState
     const zip = req.body.inputZip
     const mobile = req.body.inputMobile
+
+    const data = {
+        members:[
+            {
+                email_address: email,
+                status: "subscribed",
+                merge_fields:{
+                    FNAME: firstname,
+                    LNAME: lastname
+                }
+            }
+        ]
+    }
+    jsonData = JSON.stringify(data)
+
+    const apiKey = "3eaad097784a1f1d6be2074ba1aa7d15-us6"
+    const url="https://us6.api.mailchimp.com/3.0/lists/f45f17db83"
+    const options={
+        method:"POST",
+        auth:"azi:3eaad097784a1f1d6be2074ba1aa7d15-us6"
+    }
+
+    const request = https.request(url, options, (response)=>{
+        response.on("data", (data)=> {
+            console.log(JSON.parse(data))
+        })
+    })
+
+    request.write(jsonData)
+    request.end()
+
     const customer = new Customer({
         country : country,
         fname : firstname,
